@@ -1,0 +1,12 @@
+data/*
+!data/.gitkeep
+public/reports/
+*.tar.gz
+*.zip
+*.7z
+.env
+.env.*
+!.env.example
+node_modules/
+npm-debug.log*
+*.local

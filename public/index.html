@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>英雄联盟 · 好友排位复盘</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+    <header class="topbar">
+      <a class="dashboard-link" href="/dashboard.html">打开好友展示页</a>
+      <div class="brand"><span class="brand-symbol">✦</span><div><strong>LoL MATCH REVIEW</strong><small>FRIEND PERFORMANCE LAB</small></div></div>
+      <div class="topbar-right"><span class="privacy-note">本地分析 · 不修改游戏状态</span><span id="connection" class="status-pill offline"><i></i><span>检测客户端</span></span></div>
+    </header>
+
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="side-heading"><div><span class="kicker">PLAYERS</span><h2>选择分析对象</h2></div><span id="friendCount" class="count-badge">0</span></div>
+        <div class="side-actions"><button id="loadFriends" class="button primary">载入客户端好友</button><button id="loadDemo" class="button ghost">查看演示数据</button></div>
+        <button id="bulkCollectButton" class="button bulk-collect" disabled>采集全部好友 · 近 200 场</button>
+        <label class="search-box"><span>⌕</span><input id="friendSearch" placeholder="搜索好友昵称或 Tag" /></label>
+        <div class="selection-row"><span id="selectionText">未选择好友</span><button id="selectAll" class="text-button">全选</button></div>
+        <div id="friendList" class="friend-list"><div class="side-empty">载入好友后，在这里勾选需要分析的玩家。</div></div>
+        <div class="side-footer"><span class="live-dot"></span><span>数据只在本机处理</span></div>
+      </aside>
+
+      <main class="main-content">
+        <section class="intro-row">
+          <div><span class="kicker">MULTI-MATCH INTELLIGENCE</span><h1>把每一场对局，<em>变成下一场的计划。</em></h1><p>按玩家、模式与位置拆解真实对局，给出有证据的表现诊断，而不是只看一张战绩页。</p></div>
+          <div class="intro-mark"><span>REPORT</span><strong>01</strong></div>
+        </section>
+
+        <section class="control-panel">
+          <div class="control-title"><div><span class="kicker">COLLECTION SETTINGS</span><h3>采集范围</h3></div><span id="hint" class="hint">客户端登录后即可读取好友与历史数据</span></div>
+          <div class="control-grid">
+            <label class="control-field"><span>每位玩家场数</span><input id="countInput" type="number" min="1" max="200" value="200" /></label>
+            <label class="control-field wide"><span>数据源</span><select id="sourceInput"><option value="sgp" selected>SGP 完整详情</option><option value="auto">自动（SGP 失败才回退）</option><option value="lcu">LCU 本地接口</option></select></label>
+            <div class="queue-select"><span>只收集排位积分</span><label><input id="queueSolo" type="checkbox" checked />单双排</label><label><input id="queueFlex" type="checkbox" checked />灵活排位</label></div>
+            <label class="detail-toggle"><input id="detailsInput" type="checkbox" checked /><span><b>读取时间线</b><small>事件与全场参与者详表</small></span></label>
+            <button id="collectButton" class="button collect" disabled><span>开始采集与分析</span><b>→</b></button>
+          </div>
+          <div id="progressBox" class="progress-box hidden"><div><span id="progressMessage">准备采集</span><strong id="progressPercent">0%</strong></div><div class="progress-track"><i id="progressBar"></i></div></div>
+        </section>
+
+        <section id="reportRoot" class="report-root">
+          <div class="welcome-card"><div class="welcome-icon">◎</div><span class="kicker">READY WHEN YOU ARE</span><h2>先选择一位好友，开始建立他的对局画像。</h2><p>建议先采集 10–20 场并开启时间线。样本越充分，趋势和提升建议越可靠。</p><div class="welcome-steps"><span><b>01</b>勾选好友</span><span><b>02</b>指定场数</span><span><b>03</b>查看报告</span></div></div>
+        </section>
+      </main>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

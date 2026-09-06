@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>好友排位数据展厅</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/dashboard.css" />
+  </head>
+  <body class="dashboard-body">
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-symbol">◆</span><div><strong>FRIEND DATA LOUNGE</strong><small>LOCAL RANKED INSIGHT</small></div></div>
+      <div class="topbar-right"><a class="back-link" href="/index.html">返回采集工作台</a><span class="privacy-note">只读取本机已保存资料</span></div>
+    </header>
+    <div class="dashboard-shell">
+      <main class="dashboard-main">
+        <section class="dashboard-hero"><div><span class="kicker">PLAYER SHOWCASE</span><h1>好友排位能力全景</h1><p>页面直接展示资料库中的全部玩家。排名、五路能力和个人分析都基于已保存的排位对局，不重复请求客户端。</p></div><div class="hero-mark"><span>LOUNGE</span><strong>02</strong></div></section>
+        <div class="dashboard-toolbar"><div><span class="kicker">SAVED ROSTER</span><strong id="libraryCount">正在读取好友资料…</strong><span id="libraryUpdated">本地资料库</span></div><div class="toolbar-options"><label class="analysis-count"><span>每人分析</span><select id="analysisCount"><option value="20">近 20 场</option><option value="50">近 50 场</option><option value="100">近 100 场</option><option value="200">近 200 场</option></select></label><label><input id="dashboardSolo" type="checkbox" checked />单双排</label><label><input id="dashboardFlex" type="checkbox" checked />灵活排位</label><button id="dashboardAnalyze" class="button primary">刷新全部分析</button></div></div>
+        <section id="dashboardRoot" class="dashboard-root"><div class="dashboard-empty"><div class="welcome-icon">◎</div><span class="kicker">DATA READY</span><h2>选择好友，打开他们的数据展厅</h2><p>管理员控制展示对象；好友可以直接查看综合排名、定位排名、个人指标和对局依据。</p></div></section>
+      </main>
+    </div>
+    <div id="dashboardToast" class="toast"></div>
+    <script type="module" src="/dashboard.js"></script>
+  </body>
+</html>
